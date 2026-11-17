@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KalkulatorBelki.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+
+            <Label Text="Kalkulator parametrów belki"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+
+            <Label Text="Długość belki L (m)"/>
+            <Entry x:Name="dlugoscEntry"
+                   Placeholder="Np. 2"
+                   Keyboard="Numeric"/>
+
+            <Label Text="Szerokość przekroju b (cm)"/>
+            <Entry x:Name="szerokoscEntry"
+                   Placeholder="Np. 10"
+                   Keyboard="Numeric"/>
+
+            <Label Text="Wysokość przekroju h (cm)"/>
+            <Entry x:Name="wysokoscEntry"
+                   Placeholder="Np. 20"
+                   Keyboard="Numeric"/>
+
+            <Label Text="Materiał"/>
+            <Picker x:Name="materialPicker"
+                    Title="Wybierz materiał">
+                <Picker.Items>
+                    <x:String>Stal</x:String>
+                    <x:String>Aluminium</x:String>
+                    <x:String>Drewno</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Liczba belek (1-20)"/>
+            <Stepper x:Name="liczbaStepper"
+                     Minimum="1"
+                     Maximum="20"
+                     Increment="1"
+                     Value="1"
+                     ValueChanged="Stepper_ValueChanged"/>
+
+            <Label x:Name="liczbaLabel"
+                   Text="Liczba belek: 1"/>
+
+            <HorizontalStackLayout Spacing="10">
+                <Label Text="Zapas materiału 10%"
+                       VerticalOptions="Center"/>
+                <Switch x:Name="zapasSwitch"/>
+            </HorizontalStackLayout>
+
+            <Label Text="Cena za kilogram (zł) – opcjonalnie"/>
+            <Entry x:Name="cenaEntry"
+                   Placeholder="Np. 5"
+                   Keyboard="Numeric"/>
+
+            <Button Text="Oblicz"
+                    Clicked="Oblicz_Clicked"/>
+
+            <Button Text="Wyczyść"
+                    BackgroundColor="Gray"
+                    Clicked="Wyczysc_Clicked"/>
+
+            <Label Text="Raport wyników"
+                   FontSize="20"
+                   FontAttributes="Bold"/>
+
+            <Label x:Name="raportLabel"
+                   Text="Wprowadź dane i naciśnij Oblicz."
+                   FontSize="15"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
